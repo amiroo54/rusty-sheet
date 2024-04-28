@@ -7,10 +7,15 @@ const routes = [
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
   },
+  {
+    path: '/create',
+    name: "character creation",
+    component: () => import('../views/CharacterCreationView.vue')
+  }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 
