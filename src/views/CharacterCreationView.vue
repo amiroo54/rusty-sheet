@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <NameField class="field" ref="name" v-if="current == 'name'"/>
-        <RaceField class="field" ref="race" v-if="current == 'race'"/>
+        <RaceField class="field" ref="race" v-if="current == 'race'" :races='[{name: "dwarf", info: "rock and stone"}, {name: "elf", info: "leaf lovers"}]'/>
         <Navigation @next="navigate(true)" @back="navigate(false)"/>
     </div>
 </template>
@@ -20,7 +20,7 @@ input, select
 
 <script>
 import NameField from "../components/CharacterCreation/Name.vue";
-import RaceField from "../components/CharacterCreation/Race.vue"
+import RaceField from "../components/CharacterCreation/RaceSelect.vue"
 import Navigation from "../components/CharacterCreation/Navigation.vue";
 export default
 {
@@ -36,6 +36,7 @@ export default
         navigate(direction)
         {
             console.log(direction);
+            console.log("?")
             const index = this.steps.indexOf(this.current);
             if ((index === 0 && !direction) || (index === this.steps.length - 1 && direction)) {
                 this.back(direction);
@@ -49,11 +50,13 @@ export default
         },
         back(direction)
         {
+            console.log("going back")
             if (direction)
             {
                 //TODO: open the character menu
             } else
             {
+                console.log("back to main menu")
                 this.$router.push("/");
             }
         }
