@@ -30,7 +30,7 @@ export default
 button, h1, h2
 {
   margin: 12px 25%;
-  color: rgb(222, 255, 242);
+  color: #E0E0E0
   
 }
 
@@ -42,10 +42,12 @@ button, h1, h2
   margin: auto;
   will-change: filter;
   transition: 0.25s;
+  filter: drop-shadow(0 0 2em #fdfdfd);
+
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 1em #14ffb1);
+  filter: drop-shadow(0 0 1rem #fdfdfd);
 }
 
 </style>

@@ -18,7 +18,7 @@ export default
   line-height: 24px;
   font-weight: 400;
 
-  color: #f6f6f6;
+  color: #E0E0E0;
   background-color: #2f2f2f;
 
   font-synthesis: none;
@@ -63,7 +63,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  color: #ffffff;
+  color:#E0E0E0;
   background-color: #0f0f0f98;
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -78,7 +78,7 @@ button:hover {
 }
 button:active {
   border-color: #396cd8;
-  background-color: #e8e8e8;
+  background-color: #E0E0E0;
 }
 
 input,
