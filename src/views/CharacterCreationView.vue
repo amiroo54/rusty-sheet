@@ -2,6 +2,8 @@
     <div class="container">
         <NameField class="field" ref="name" v-if="current == 'name'"/>
         <RaceField class="field" ref="race" v-if="current == 'race'" :races='[{name: "dwarf", info: "rock and stone"}, {name: "elf", info: "leaf lovers"}]'/>
+        <ClassField class="field" ref="class" v-if="current == 'class'"/>
+        <ItemField class="field" ref="item" v-if="current == 'item'"/>
         <Navigation @next="navigate(true)" @back="navigate(false)"/>
     </div>
 </template>
@@ -21,14 +23,16 @@ input, select
 <script>
 import NameField from "../components/CharacterCreation/Name.vue";
 import RaceField from "../components/CharacterCreation/RaceSelect.vue"
+import ClassField from "../components/CharacterCreation/ClassSelect.vue"
+import ItemField from "../components/CharacterCreation/ItemSelect.vue"
 import Navigation from "../components/CharacterCreation/Navigation.vue";
 export default
 {
-    components: {NameField, RaceField, Navigation},
+    components: {NameField, RaceField, ClassField, ItemField, Navigation},
     data() {
         return {
             current: "name",
-            steps: ["name", "race", "class"]
+            steps: ["name", "race", "class", "item"]
         }
     },
     methods:

@@ -1,6 +1,6 @@
 <template>
-        <button id="back" @click="$emit('back')" >Back</button>
-        <button id="next" @click="$emit('next')">Next</button>
+    <button id="back" @click="$emit('back')" >Back</button>
+    <button id="next" @click="$emit('next')">Next</button>
 </template>
 
 <style scoped>
