@@ -3,8 +3,10 @@
         <NameField class="field" ref="name" v-if="current == 'name'"/>
         <RaceField class="field" ref="race" v-if="current == 'race'" :races='[{name: "dwarf", info: "rock and stone"}, {name: "elf", info: "leaf lovers"}]'/>
         <ClassField class="field" ref="class" v-if="current == 'class'"/>
+        <StatField class="field" ref="stat" v-if="current == 'stat'"/>
         <ItemField class="field" ref="item" v-if="current == 'item'"/>
         <Navigation @next="navigate(true)" @back="navigate(false)"/>
+        <button @click="getOpts()">test</button>
     </div>
 </template>
 
@@ -21,18 +23,21 @@ input, select
 </style>
 
 <script>
+import { invoke } from '@tauri-apps/api'
 import NameField from "../components/CharacterCreation/Name.vue";
 import RaceField from "../components/CharacterCreation/RaceSelect.vue"
 import ClassField from "../components/CharacterCreation/ClassSelect.vue"
+import StatField from "../components/CharacterCreation/Stats/StatSelection.vue"
 import ItemField from "../components/CharacterCreation/ItemSelect.vue"
 import Navigation from "../components/CharacterCreation/Navigation.vue";
 export default
 {
-    components: {NameField, RaceField, ClassField, ItemField, Navigation},
+    components: {NameField, RaceField, ClassField, StatField, ItemField, Navigation},
     data() {
         return {
             current: "name",
-            steps: ["name", "race", "class", "item"]
+            steps: ["name", "race", "class", "stat", "item"],
+            options: ""
         }
     },
     methods:
@@ -63,6 +68,13 @@ export default
                 console.log("back to main menu")
                 this.$router.push("/");
             }
+        },
+        getOpts()
+        {
+            invoke("getCharacterOptions",{}).then((response) => 
+            {
+                console.log(response)
+            })
         }
     }
 }

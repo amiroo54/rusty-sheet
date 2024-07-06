@@ -4,8 +4,8 @@
       <img src="/src/assets/RustySheetLogo.svg" class="logo">
       <h1>Rusty sheet</h1> <h2>A simple DnD 5e character sheet</h2>
 
-      <button @click="goToCreation()">Create character</button>
-      <button>View characters</button>
+      <button @click="this.$router.push('/create');">Create character</button>
+      <button @click="this.$router.push('/list')">View characters</button>
       <button>Data</button>
     </div>
 </template>
@@ -16,12 +16,7 @@
 export default 
 {
   name: "HomeView",
-  methods: {
-    goToCreation()
-    {
-      this.$router.push("/create");
-    }
-  }
+  
 }
 </script>
 
